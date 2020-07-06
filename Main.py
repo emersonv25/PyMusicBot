@@ -3,7 +3,7 @@ from asyncio import sleep
 from discord.ext import commands
 from discord.ext.commands import has_permissions, Bot
 
-token = 'NzI5Mzk5NjQzMjM0MTA3NTQ0.XwIcgA.lE3yk5KuKpCDgAzGpuSa-O25v8A'
+token = 'TOKEN AQUI !'
 
 bot = commands.Bot(command_prefix='pk ')
 
