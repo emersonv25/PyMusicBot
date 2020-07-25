@@ -6,7 +6,7 @@ from discord.utils import get
 from discord import FFmpegPCMAudio
 from os import system
 
-token = 'NzI5Mzk5NjQzMjM0MTA3NTQ0.XwIYWg.T9hSL5qzh8QRicynISavrh2r1Bk'
+token = '' # TOKEN AQUI
 #client = commands.Bot(command_prefix='pk ')
 bot = commands.Bot(command_prefix='pk ')
 #players = {}
