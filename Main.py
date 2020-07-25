@@ -28,7 +28,7 @@ async def falar(ctx, *,msg):
 async def join(ctx):
     channel = ctx.message.author.voice.channel
     if not channel:
-        await ctx.send("VOCÊ PRECISA ESTÁ EM UM CANAL DE VOZ, SUA MULA !")
+        await ctx.send("VOCÊ PRECISA ESTÁ EM UM CANAL DE VOZ!")
         return
     voice = get(bot.voice_clients, guild=ctx.guild)
     if voice and voice.is_connected():
@@ -46,7 +46,7 @@ async def leave(ctx):
         await voice.disconnect()
         await ctx.send("O DJ TA OFF")
     else:
-        await ctx.send("NÃO PODE SAIR DE ONDE NÃO ENTROU, SUA ANTA !")
+        await ctx.send("NÃO PODE SAIR DE ONDE NÃO ENTROU!")
 
 # DÁ PLAY A PARTIR DE UMA URL, BAIXA O MP3 E TOCA.
 @bot.command(pass_context=True, brief="Tocara uma musica 'play [url]'", aliases=['pl', 'p', 'tocar'])
@@ -116,7 +116,7 @@ async def resume(ctx):
         await ctx.send("The show must go on ! Musica despausada !")
     else:
         print("Music is not paused")
-        await ctx.send("Não pode resumir se não tem nada pausado !")
+        await ctx.send("Musica não está pausada!")
 
 # PARA E PULA A MUSICA
 @bot.command(pass_context=True, aliases=['s', 'ski', 'pular'])
@@ -131,7 +131,7 @@ async def skip(ctx):
         await ctx.send("Music skipped")
     else:
         print("No music playing failed to skip")
-        await ctx.send("Não pode parar ou pular sem está tocando uma musica !")
+        await ctx.send("Nenhuma musica tocando !")
 
 
 
