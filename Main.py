@@ -7,8 +7,8 @@ from discord import FFmpegPCMAudio
 from os import system
 
 token = '' # TOKEN AQUI
-#client = commands.Bot(command_prefix='pk ')
-bot = commands.Bot(command_prefix='pk ')
+#client = commands.Bot(command_prefix='!')
+bot = commands.Bot(command_prefix='!')
 #players = {}
 #COR = 0xF7FE2E
 
@@ -35,7 +35,7 @@ async def join(ctx):
         await voice.move_to(channel)
     else:
         voice = await channel.connect()
-    await ctx.send(f"O DJ TA ON no canal de voz: {channel}")
+    await ctx.send(f"Conectado no canal de voz: {channel}")
 
 # DESCONECTA DO CANAL DE VOZ
 @bot.command(pass_context=True, brief="Faz o bot sair do seu canal", aliases=['l', 'le', 'lea', 'sair'])
@@ -44,9 +44,9 @@ async def leave(ctx):
     voice = get(bot.voice_clients, guild=ctx.guild)
     if voice and voice.is_connected():
         await voice.disconnect()
-        await ctx.send("O DJ TA OFF")
+        await ctx.send("Desconectado")
     else:
-        await ctx.send("NÃO PODE SAIR DE ONDE NÃO ENTROU!")
+        await ctx.send("OPS, Não estou conectado em nenhum canal!")
 
 # DÁ PLAY A PARTIR DE UMA URL, BAIXA O MP3 E TOCA.
 @bot.command(pass_context=True, brief="Tocara uma musica 'play [url]'", aliases=['pl', 'p', 'tocar'])
@@ -59,7 +59,7 @@ async def play(ctx, *,url: str):
         await ctx.send("Aguarde o término da música atual ou use o comando 'skip'")
         return
     await ctx.send("Um momento amigo ! Colocando lenha no servidor para reproduzir a música!")
-    print("Someone wants to play music let me get that ready for them...")
+    
     
     
     voice = get(bot.voice_clients, guild=ctx.guild)
@@ -102,8 +102,7 @@ async def pause(ctx):
         voice.pause()
         await ctx.send("Pausando a Musica")
     else:
-        print("Music not playing failed pause")
-        await ctx.send("Não pode pausar o que não está reproduzindo !")
+        await ctx.send("OPS, não estou reproduzindo nada")
 
 # RESUME A MUSICA
 @bot.command(pass_context=True, aliases=['r', 'res', 'resumir'])
@@ -115,7 +114,6 @@ async def resume(ctx):
         voice.resume()
         await ctx.send("The show must go on ! Musica despausada !")
     else:
-        print("Music is not paused")
         await ctx.send("Musica não está pausada!")
 
 # PARA E PULA A MUSICA
@@ -126,11 +124,9 @@ async def skip(ctx):
     #queues.clear()
 
     if voice and voice.is_playing():
-        print("Music skipped")
         voice.stop()
         await ctx.send("Music skipped")
     else:
-        print("No music playing failed to skip")
         await ctx.send("Nenhuma musica tocando !")
 
 
