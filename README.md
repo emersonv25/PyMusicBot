@@ -4,8 +4,8 @@ Simple music bot
 
 ## Description
 
+a music discord bot created using python and the youtube-dl and discord.py libraries
 
-The project consists of a simple chat using a graphical interface and a data exchange server made with socket and udp.
 
 ## Getting Started
 
@@ -31,7 +31,7 @@ when adding your bot's token to main.py, run it and if everything goes well, you
 !r - resume
 !s - skip music
 
-
+note: the program does not stream music, first download and convert it to mp3 and then play the music.
 ```
 
 ## Authors
