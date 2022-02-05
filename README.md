@@ -1,3 +1,6 @@
+# discontinued many years ago, 
+New version developed in javascript with discord.js available at: https://github.com/emersonv25/pkapaBot
+
 # PyMusicBot
 
 Simple music bot
